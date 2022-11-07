@@ -1,0 +1,2 @@
+select c.first_name, c.last_name,a.address,a.city,a.postal_code,a.latitude,a.longitude,c.active,count(rental.customer_id) as nombre_location from customer c
+left join address a on a.address_id=c.address_id join rental on rental.customer_id=c.customer_id group by c.customer_id order by nombre_location desc limit 1;
